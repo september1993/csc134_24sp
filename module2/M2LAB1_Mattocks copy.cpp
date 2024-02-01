@@ -14,15 +14,16 @@ class Area {
         double rect_area();
         double box_area();
         // declare variables
-        double length, width, height, volume;
+        static double length, width, height, volume, area; // Made these variables static so that they are the same in every instance of the class
 };
 
+double Area::length = 0; // The second part of the solution to my problem was to initialize the public static variables outside of the class
+double Area::width = 0;
+double Area::height = 0;
+double Area::volume = 0;
+double Area::area = 0;
 
 double Area::rect_area() {
-    // declare variables
-        double length;
-        double width;
-        double area;
 
     // greet user
     cout << "Part 1 - Area of a Rectangle" << endl;
@@ -43,7 +44,6 @@ double Area::rect_area() {
 }
 
 double Area::box_area() {
-    
 
     // greet user
     cout << "Part 2 - Area of a Box" << endl;
@@ -63,7 +63,7 @@ double Area::box_area() {
 
     // print output
     cout << endl << "The volume of the box is " << volume << endl << endl;
-    return volume;
+    return 0;
 }
 
 void calc_box_stats() {
@@ -80,10 +80,10 @@ void calc_box_stats() {
 
     // output results of calculations
     cout << setprecision(2) << fixed << showpoint;
-    cout << "Given a box with a volume of " << volume << " sq. units," << endl;
-    cout << "The cost of manufacturing is $" << cost << "," << endl;
-    cout << "The price charged to customers is $" << charge << "," << endl;
-    cout << "And the profit gained from a sale is $" << profit << "." << endl;
+    cout << "Given a box with a volume of " << Area.volume << " sq. units," << endl;    // basically, because the Area variable wasn't static,
+    cout << "The cost of manufacturing is $" << cost << "," << endl;                    // every new instance of Area would reset it back to 0.00. fixed that.
+    cout << "The price charged to customers is $" << charge << "," << endl;             // i also needed to initialize the Area variables or i'd get an error "undefined" 
+    cout << "And the profit gained from a sale is $" << profit << "." << endl;          
 }
 
 int main() {
