@@ -34,7 +34,7 @@ int main()
    area = calcArea(length, width);
    
    // Display the rectangle's data.
-   displayData(length, width, area);
+   displayData(getWidth(), getLength(), calcArea(getWidth(), getLength()));
           
    return 0;
 }
