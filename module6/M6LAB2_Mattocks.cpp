@@ -27,7 +27,7 @@ int main () {
     cout << endl;
     for (int i=0; i < how_many; i++) {
         cout << "Enter a number: ";
-        cint >> num;
+        cin >> num;
         numbers.push_back(num);
     
     }
@@ -42,6 +42,29 @@ int main () {
     cout << endl;
 
     // part 2 - linked list
-    // 
+    // make some nodes and link them together
+    Node* head = nullptr; // no head = empty list
+
+    Node first;
+    first.num - 1;
+    first.next = nullptr;
+
+    Node second;
+    second.num = 2;
+    second.next = nullptr;
+
+    // connect head to first
+    head = &first; // & = "address of" or "reference to"
+    // connect first to second
+    first.next = &second;
+
+    // finally, loop through the list
+    cout << "Nodes of list: " << endl;
+    Node* probe = head;
+    while (probe != nullptr) {
+        cout << probe->num << ", ";
+        probe = probe->next;
+    } 
+
 
 }
